@@ -1,0 +1,17 @@
+{
+  "node_id": "alpha",
+  "description": "量化专属 Worker 矩阵",
+  "workers": [
+    {"id": "alpha-commander", "enabled": true, "purpose": "量化总指挥"},
+    {"id": "alpha-strategist", "enabled": true, "purpose": "策略设计"},
+    {"id": "alpha-hunter", "enabled": true, "purpose": "信号发现"},
+    {"id": "alpha-backtester", "enabled": true, "purpose": "回测验证"},
+    {"id": "alpha-validator", "enabled": true, "purpose": "信号验证"},
+    {"id": "risk-controller", "enabled": true, "purpose": "风控（仅此节点）", "exclusive_to": ["alpha"]},
+    {"id": "alpha-executor", "enabled": true, "purpose": "交易执行（仅此节点）", "exclusive_to": ["alpha"]}
+  ],
+  "security_notes": [
+    "risk-controller 和 alpha-executor 只能在 alpha 节点运行",
+    "SDK 层硬性限制，非 Prompt 层"
+  ]
+}

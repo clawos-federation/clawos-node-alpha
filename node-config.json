@@ -1,0 +1,47 @@
+{
+  "node_id": "alpha",
+  "display_name": "Alpha 量化方面军",
+  "type": "specialized",
+  "role": "army-group",
+  "port": 18790,
+  "workspace": "~/.openclaw-alpha/workspace",
+  "federation": {
+    "role": "member",
+    "brain_path": "~/clawos-federation/clawos-brain",
+    "blackboard_path": "~/clawos-federation/clawos-blackboard",
+    "oversight_node": "server",
+    "evolution_goals_source": "blackboard/federation/evolution-queue/alpha-goals.json",
+    "report_to": "blackboard/alpha/"
+  },
+  "communication": {
+    "transport": "localhost",
+    "blackboard_poll_interval_seconds": 60
+  },
+  "online_schedule": "always",
+  "specialization": "quantitative-trading",
+  "security": {
+    "isolated": true,
+    "allowed_callers": ["localhost:18789"],
+    "forbidden_external_tools": ["browser", "github-write"],
+    "risk_controller": {
+      "bypass_prohibited": true,
+      "rules_immutable": true
+    }
+  },
+  "idle_policy": {
+    "contribute_after_idle_minutes": 10,
+    "evolution_tasks_enabled": ["p1-knowledge", "p2-training"],
+    "evolution_focus": "quantitative-finance"
+  },
+  "commander": "alpha-commander",
+  "workers": [
+    "alpha-commander",
+    "alpha-strategist",
+    "alpha-hunter",
+    "alpha-backtester",
+    "alpha-validator",
+    "risk-controller",
+    "alpha-executor"
+  ],
+  "exclusive_workers": ["risk-controller", "alpha-executor"]
+}
