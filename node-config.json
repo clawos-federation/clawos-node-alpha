@@ -4,7 +4,13 @@
   "type": "specialized",
   "role": "army-group",
   "port": 18790,
-  "workspace": "~/.openclaw-alpha/workspace",
+  "storage": {
+    "type": "external",
+    "path": "/Volumes/LEGION/clawos-alpha",
+    "mount_point": "/Volumes/LEGION",
+    "mount_required": true
+  },
+  "workspace": "/Volumes/LEGION/clawos-alpha/workspaces",
   "federation": {
     "role": "member",
     "brain_path": "~/clawos-federation/clawos-brain",
@@ -32,6 +38,13 @@
     "contribute_after_idle_minutes": 10,
     "evolution_tasks_enabled": ["p1-knowledge", "p2-training"],
     "evolution_focus": "quantitative-finance"
+  },
+  "assets": {
+    "strategies": 27,
+    "souls": 7,
+    "skills": 10,
+    "backtests": 47,
+    "size_mb": 269
   },
   "commander": "alpha-commander",
   "workers": [
